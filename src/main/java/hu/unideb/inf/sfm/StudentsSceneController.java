@@ -30,9 +30,20 @@ public class StudentsSceneController {
         else colorLabel.setText("Black");
     }
 
+   /* private void refreshName(){
+        nameLabel.setText(model.getStudent().getName());
+    }*/
+
+    @FXML
+    void changeData(ActionEvent event) {
+        model.getStudent().setName("Tom Smith");
+        //refreshName();
+    }
+
     @FXML
     void loadData(ActionEvent event) {
-        nameLabel.setText(model.getStudent().getName());
+    //    refreshName();
+        nameLabel.textProperty().bind(model.getStudent().nameProperty());
         creditsLabel.setText("" + model.getStudent().getCredits());
         dateOfBirthLabel.setText(model.getStudent().getDateOfBirth().toString());
     }

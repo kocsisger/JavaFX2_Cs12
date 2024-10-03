@@ -1,11 +1,15 @@
 package hu.unideb.inf.sfm;
 
+import hu.unideb.inf.sfm.model.Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 
 public class StudentsSceneController {
+
+    private Model model = new Model();
+
     @FXML
     private Label colorLabel;
 
@@ -28,6 +32,8 @@ public class StudentsSceneController {
 
     @FXML
     void loadData(ActionEvent event) {
-
+        nameLabel.setText(model.getStudent().getName());
+        creditsLabel.setText("" + model.getStudent().getCredits());
+        dateOfBirthLabel.setText(model.getStudent().getDateOfBirth().toString());
     }
 }
